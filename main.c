@@ -2,6 +2,12 @@
 #include <stdlib.h>
 
 #include "bubblesort.h"
+#include "insertionsort.h"
+#include "selectionsort.h"
+#include "shellsort.h"
+#include "mergesort.h"
+#include "heapsort.h"
+#include "quicksort.h"
 
 int main(){
 
@@ -32,39 +38,39 @@ int main(){
             break;
 
         //Executando o Insertionsort
-        case 2:
-        
-            break;
+        //case 2:
+            //insertionsort();
+        //break;
 
         //Executando o Selectionsort
-        case 3:
-        
-            break;
+        //case 3:
+            //selectionsort();
+        //break;
 
         //Executando o Shellsort
-        case 4:
-            
-            break;
+        //case 4:
+            //shellsort();
+        //break;
 
         //Executando o Mergesort
-        case 5:
-            
-            break;
+        //case 5:
+            //mergesort();
+        //break;
 
         //Executando o Heapsort
-        case 6:
-         
-            break;
+        //case 6:
+            //heapsort();
+        //break;
 
         //Executando o Quicksort
-        case 7:
-         
-            break;
+        //case 7:
+            //quicksort();
+        //break;
 
         //Executando o Outro
-        case 8:
+        //case 8:
             
-        break;
+        //break;
 
         //Sair do programa
         case 9:
