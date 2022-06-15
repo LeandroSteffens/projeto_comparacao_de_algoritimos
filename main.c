@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
+#define valor_max 100
+#define valor_min 0
 
 #include "bubblesort.h"
 #include "insertionsort.h"
@@ -11,13 +14,43 @@
 
 int main(){
 
+    int opcao, tam_vetor, i, *vetor;
+    
+    printf("\t\t\nComparacao de algoritimos de ordenacao");
+    printf("\nDigite o tamanho do vetor: ");
+        scanf("%d", &tam_vetor);
+    
+    printf("\nTipo de vetor desejado: ");
+            printf("\n\n(1) - Vetor crescente");
+            printf("\n(2) - Vetor decrescente");
+            printf("\n(3) - Vetor aleatorio");
+                scanf("%d", &opcao);
 
-    int opcao;
+            switch (opcao){
 
+                case 1:
 
-    opcao = 0;
+                    break;
+            
+                case 2:
 
-    printf("\nComparacao de algoritimos de ordenacao");
+                    break;
+
+                case 3:
+                    srand(time(0));
+                    vetor = malloc(tam_vetor*sizeof(int));
+                    for (i = 0; i < tam_vetor; i ++)
+                        vetor[i] = (rand () % valor_max) + valor_min;
+                    for (i = 0; i < tam_vetor; i ++)
+                        printf ("%d ", vetor[i]);
+                    free (vetor);
+
+                    break;
+            
+                default:
+                    break;
+            }
+
     printf("\nSelecione uma opcao abaixo:");
     printf("\n(1) - Bubblesort");
     printf("\n(2) - Insertionsort");
@@ -34,36 +67,44 @@ int main(){
 
         //Executando o Bubblesort
         case 1:
-            bubblesort();
+
+            bubblesort(tam_vetor, &vetor);
+
             break;
 
         //Executando o Insertionsort
         //case 2:
+
             //insertionsort();
         //break;
 
         //Executando o Selectionsort
         //case 3:
+                
             //selectionsort();
         //break;
 
         //Executando o Shellsort
         //case 4:
+
             //shellsort();
         //break;
 
         //Executando o Mergesort
         //case 5:
+
             //mergesort();
         //break;
 
         //Executando o Heapsort
         //case 6:
+
             //heapsort();
         //break;
 
         //Executando o Quicksort
         //case 7:
+
             //quicksort();
         //break;
 
