@@ -63,22 +63,3 @@ void quick_sort(int vet[], int inicio, int fim)
 	}
 }
 
-int main()
-{
-	// vetor que será ordenado
-	int vet[] = {25,40,55,20,44,35,38,99,10,65,50};
-	int tam_vet = sizeof(vet) / sizeof(int);
-	int i;
-	
-	// inicializa random seed
-	srand(time(NULL));
-	 
-	// chamada do quicksort
-	quick_sort(vet, 0, tam_vet - 1);
-
-	// mostra o vetor ordenado
-	for(i = 0; i < tam_vet; i++)
-		printf("%d ", vet[i]);
-	
-	return 0; 
-}

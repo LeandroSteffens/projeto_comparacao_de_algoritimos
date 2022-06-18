@@ -2,21 +2,21 @@
 #include <stdlib.h>
 #include <time.h>
 #define valor_max 100
-#define valor_min 0
+#define valor_min 1
 
 #include "bubblesort.h"
-#include "insertionsort.h"
+/*#include "insertionsort.h"
 #include "selectionsort.h"
 #include "shellsort.h"
 #include "mergesort.h"
 #include "heapsort.h"
 #include "quicksort.h"
-
+*/
 int main(){
 
     int opcao, tam_vetor, i, *vetor;
     
-    printf("\t\t\nComparacao de algoritimos de ordenacao");
+    printf("\n\n\t\tComparacao de algoritimos de ordenacao");
     printf("\nDigite o tamanho do vetor: ");
         scanf("%d", &tam_vetor);
     
@@ -43,7 +43,7 @@ int main(){
                         vetor[i] = (rand () % valor_max) + valor_min;
                     for (i = 0; i < tam_vetor; i ++)
                         printf ("%d ", vetor[i]);
-                    free (vetor);
+                    
 
                     break;
             
@@ -68,8 +68,8 @@ int main(){
         //Executando o Bubblesort
         case 1:
 
-            bubblesort(tam_vetor, &vetor);
-
+            bubblesort(tam_vetor, vetor);
+            main();
             break;
 
         //Executando o Insertionsort
@@ -122,4 +122,5 @@ int main(){
             main();
         break;
     }
+    free(vetor);
 }

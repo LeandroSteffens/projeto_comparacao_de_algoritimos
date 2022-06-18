@@ -44,13 +44,3 @@ void peneira(int *vet, int raiz, int fundo) {
 	}
   }
 }
-
-int main() {
-	int vetor[max] = {5,2,7,8,10,6,1,4,9,3};
-	int i;
-	heapsort(vetor,max);
-	for (i = 0; i < max; i++) {
-		printf("%d ", vetor[i]);
-	}
-	return(0);
-}
