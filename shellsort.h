@@ -1,66 +1,26 @@
-// Libs
-#include <stdio.h>
-#include <stdlib.h>
- 
-// Define uma constante
-// Define a constant
-#define MAX 10
- 
-// Protótipo da função de ordenação
-// Ordination function prototype
-void shell_sort(int *a, int size);
- 
-// Função main
-// Main Function
-int main(int argc, char** argv)
-{
- int i, vet[MAX];
- 
- // Lê MAX ou 10 valores
- // Read MAX or 10 values
- for(i = 0; i < MAX; i++)
- {
-  printf("Digite um valor: ");
-  scanf("%d", &vet[i]);
- }
- 
- // Ordena os valores
- // Order values
- shell_sort(vet, MAX);
- 
- // Imprime os valores ordenados
- // Print values in order ascendant
- printf("nnValores ordenadosn");
- for(i = 0; i < MAX; i++)
- {
-  printf("%dn", vet[i]);
- }
- system("pause");
- return 0;
-}
- 
-// Função de ordenação Shell
-// Shellsort function
-void shell_sort(int *a, int size)
+void shell_sort(int tam_vetor, int *vetor)
 {
  int i , j , value;
  int gap = 1;
   
  do {
   gap = 3*gap+1;
- } while(gap < size);
+ } while(gap < tam_vetor);
   
  do {
   gap /= 3;
-  for(i = gap; i < size; i++) {
-   value = a[i];
+  for(i = gap; i < tam_vetor; i++) {
+   value = vetor[i];
    j = i - gap;
     
-   while (j >= 0 && value < a[j]) {
-    a[j + gap] = a[j];
+   while (j >= 0 && value < vetor[j]) {
+    vetor[j + gap] = vetor[j];
     j -= gap;
    }
-   a[j + gap] = value;
+   vetor[j + gap] = value;
   }
  }while(gap > 1);
+
+ for (i = 0; i < tam_vetor; i++)
+		printf("%d ", vetor[i]);
 }
