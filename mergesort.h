@@ -1,82 +1,51 @@
-/* C program for Merge Sort */
-#include <stdio.h>
-#include <stdlib.h>
+void merge(int *vetor, int ini, int meio, int fim) {
 
-// Merges two subarrays of arr[].
-// First subarray is arr[l..m]
-// Second subarray is arr[m+1..r]
-void merge(int arr[], int l, int m, int r)
-{
-	int i, j, k;
-	int n1 = m - l + 1;
-	int n2 = r - m;
+    int i = ini, j = meio, k = 0, *w = malloc(fim*sizeof(int));
 
-	/* create temp arrays */
-	int L[n1], R[n2];
+    while(i < meio && j < fim) {
+        if(vetor[i] <= vetor[j]) {
+            w[k] = vetor[i];
+            i++;
+        }
+        else {
+            w[k] = vetor[j];
+            j++;
+        }
+        k++;
+    }
 
-	/* Copy data to temp arrays L[] and R[] */
-	for (i = 0; i < n1; i++)
-		L[i] = arr[l + i];
-	for (j = 0; j < n2; j++)
-		R[j] = arr[m + 1 + j];
+    while(i < meio) {
+        w[k] = vetor[i];
+        i++;
+        k++;
+    }
 
-	/* Merge the temp arrays back into arr[l..r]*/
-	i = 0; // Initial index of first subarray
-	j = 0; // Initial index of second subarray
-	k = l; // Initial index of merged subarray
-	while (i < n1 && j < n2) {
-		if (L[i] <= R[j]) {
-			arr[k] = L[i];
-			i++;
-		}
-		else {
-			arr[k] = R[j];
-			j++;
-		}
-		k++;
-	}
+    while(j < fim) {
+        w[k] = vetor[j];
+        j++;
+        k++;
+    }
 
-	/* Copy the remaining elements of L[], if there
-	are any */
-	while (i < n1) {
-		arr[k] = L[i];
-		i++;
-		k++;
-	}
+    for(i = ini; i < fim; i++) {
+        vetor[i] = w[i-ini];
+    }
 
-	/* Copy the remaining elements of R[], if there
-	are any */
-	while (j < n2) {
-		arr[k] = R[j];
-		j++;
-		k++;
-	}
+    free(w);
 }
 
-/* l is for left index and r is right index of the
-sub-array of arr to be sorted */
-void mergeSort(int arr[], int l, int r)
-{
-	if (l < r) {
-		// Same as (l+r)/2, but avoids overflow for
-		// large l and h
-		int m = l + (r - l) / 2;
-
-		// Sort first and second halves
-		mergeSort(arr, l, m);
-		mergeSort(arr, m + 1, r);
-
-		merge(arr, l, m, r);
-	}
+void mergesort(int *vetor, int i, int f) {
+    int m;
+    if(i<f-1) {
+        m = (i+f)/2;
+        mergesort(vetor, i, m);
+        mergesort(vetor, m, f);
+        merge(vetor, i, m, f);
+    }
 }
 
-/* UTILITY FUNCTIONS */
-/* Function to print an array */
-void printArray(int A[], int size)
-{
-	int i;
-	for (i = 0; i < size; i++)
-		printf("%d ", A[i]);
-	printf("\n");
-}
+void mergesort_ordena(int tam_vetor, int *vetor) {
+    mergesort(vetor, 0, tam_vetor);
 
+	for (int i = 0; i < tam_vetor; i++)
+		printf("%d ", vetor[i]);
+}
