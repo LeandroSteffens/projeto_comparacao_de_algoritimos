@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#define valor_max 100
+#define valor_max 100000
 #define valor_min 1
 
 #include "bubblesort.h"
@@ -16,6 +16,7 @@
 int main(){
 
     int opcao, tam_vetor, i, j, *vetor;
+    clock_t t;
     
     printf("\n\n\t\tComparacao de algoritimos de ordenacao");
     printf("\nDigite o tamanho do vetor: ");
@@ -77,8 +78,16 @@ int main(){
 
         //Executando o Bubblesort
         case 1:
-
+            //tempo gasto
+                t = clock();
             bubblesort(tam_vetor, vetor);
+                t = clock()-t;
+
+                for (i = 0; i < tam_vetor ; i++) 
+                    printf("%d ", vetor[i]);
+
+                printf("\n tempo gasto = %lf", ((double)t)/((CLOCKS_PER_SEC)));
+            
             free(vetor);
             main();
             break;

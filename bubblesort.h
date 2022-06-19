@@ -10,7 +10,4 @@ void bubblesort (int tam_vetor, int *vetor) {
             }
         }
     }
-    for (i = 0; i < tam_vetor ; i++) {
-        printf("%d ", vetor[i]);
-    }
 }
