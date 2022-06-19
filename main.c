@@ -8,13 +8,13 @@
 #include "insertionsort.h"
 #include "selectionsort.h"
 #include "shellsort.h"
-//#include "mergesort.h"
-//#include "heapsort.h"
-//#include "quicksort.h"
+#include "mergesort.h"
+#include "heapsort.h"
+#include "quicksort.h"
 
 int main(){
 
-    int opcao, tam_vetor, i, *vetor;
+    int opcao, tam_vetor, i, j, *vetor;
     
     printf("\n\n\t\tComparacao de algoritimos de ordenacao");
     printf("\nDigite o tamanho do vetor: ");
@@ -32,12 +32,18 @@ int main(){
                 case 1:
                     for (i = 0; i <= tam_vetor; i++)
                         vetor[i] = i;
+                    for (i = 0; i < tam_vetor; i ++)
+                        printf ("%d ", vetor[i]);
                     break;
             
                 case 2:
-                    for (i = tam_vetor; i >= tam_vetor; i--)
-                        vetor[i] = i;
-
+                    j = tam_vetor-1;
+                    for (i = 0; i < tam_vetor; i++){
+                        vetor[i] = j;
+                        j--;
+                    }
+                    for (i = 0; i < tam_vetor; i ++)
+                        printf ("%d ", vetor[i]);
                     break;
 
                 case 3:
@@ -92,10 +98,9 @@ int main(){
             break;
 
         //Executando o Mergesort
-        //case 5:
-
-            //mergesort();
-        //break;
+        case 5:
+            mergesort_ordena(tam_vetor, vetor);
+            break;
 
         //Executando o Heapsort
         //case 6:
@@ -104,10 +109,11 @@ int main(){
         //break;
 
         //Executando o Quicksort
-        //case 7:
-
-            //quicksort();
-        //break;
+        case 7:
+            quicksort(vetor, 0, tam_vetor-1);
+            for (i = 0; i < tam_vetor; i ++)
+                printf ("%d ", vetor[i]);
+            break;
 
         //Executando o Outro
         //case 8:
