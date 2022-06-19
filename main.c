@@ -7,7 +7,7 @@
 #include "bubblesort.h"
 #include "insertionsort.h"
 #include "selectionsort.h"
-//#include "shellsort.h"
+#include "shellsort.h"
 //#include "mergesort.h"
 //#include "heapsort.h"
 //#include "quicksort.h"
@@ -78,18 +78,18 @@ int main(){
         //Executando o Insertionsort
         case 2:
             insertionsort(tam_vetor, vetor);
-        break;
+            break;
 
         //Executando o Selectionsort
         case 3:
             selectionsort(tam_vetor, vetor);
-        break;
+            break;
 
         //Executando o Shellsort
-        //case 4:
-
-            //shellsort();
-        //break;
+        case 4:
+            shellsort(tam_vetor, vetor);
+            main();
+            break;
 
         //Executando o Mergesort
         //case 5:

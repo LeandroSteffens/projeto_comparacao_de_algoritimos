@@ -1,4 +1,4 @@
-void shell_sort(int tam_vetor, int *vetor)
+void shellsort(int tam_vetor, int *vetor)
 {
  int i , j , value;
  int gap = 1;
@@ -19,7 +19,7 @@ void shell_sort(int tam_vetor, int *vetor)
    }
    vetor[j + gap] = value;
   }
- }while(gap > 1);
+ } while(gap > 1);
 
  for (i = 0; i < tam_vetor; i++)
 		printf("%d ", vetor[i]);
