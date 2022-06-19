@@ -11,6 +11,7 @@
 #include "mergesort.h"
 #include "heapsort.h"
 #include "quicksort.h"
+#include "binaryInsertionsort.h"
 
 int main(){
 
@@ -68,7 +69,7 @@ int main(){
     printf("\n(5) - Mergesort");
     printf("\n(6) - Heapsort");
     printf("\n(7) - Quicksort");
-    printf("\n(8) - Outro");
+    printf("\n(8) - Binary Insetionsort");
     printf("\n(9) - Sair\n");
 
     scanf("%i", &opcao);
@@ -78,47 +79,60 @@ int main(){
         case 1:
 
             bubblesort(tam_vetor, vetor);
+            free(vetor);
             main();
             break;
 
         //Executando o Insertionsort
         case 2:
             insertionsort(tam_vetor, vetor);
+            free(vetor);
+            main();
             break;
 
         //Executando o Selectionsort
         case 3:
             selectionsort(tam_vetor, vetor);
+            free(vetor);
+            main();
             break;
 
         //Executando o Shellsort
         case 4:
             shellsort(tam_vetor, vetor);
+            free(vetor);
             main();
             break;
 
         //Executando o Mergesort
         case 5:
             mergesort_ordena(tam_vetor, vetor);
+            free(vetor);
+            main();
             break;
 
         //Executando o Heapsort
-        //case 6:
-
-            //heapsort();
-        //break;
+        case 6:
+            heapsort(tam_vetor, vetor);
+            free(vetor);
+            main();
+        break;
 
         //Executando o Quicksort
         case 7:
             quicksort(vetor, 0, tam_vetor-1);
             for (i = 0; i < tam_vetor; i ++)
                 printf ("%d ", vetor[i]);
+            free(vetor);
+            main();
             break;
 
-        //Executando o Outro
-        //case 8:
-            
-        //break;
+        //Executando o Binary
+        case 8:
+            binary(vetor, tam_vetor);
+            free(vetor);
+            main();
+            break;
 
         //Sair do programa
         case 9:
@@ -126,6 +140,7 @@ int main(){
         break;
 
         default:
+            free(vetor);
             main();
         break;
     }

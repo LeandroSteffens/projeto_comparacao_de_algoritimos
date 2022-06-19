@@ -1,46 +1,40 @@
-#include <stdio.h>
-#define max 10
+void constroi_heap(int *vetor, int i, int tam_vetor) {
+    int maior, l, r, aux;
+    maior = i;
+    l = 2*i + 1;
+    r = 2*i + 2;
 
-void peneira(int *vet, int raiz, int fundo);
-
-void heapsort(int *vet, int n) {
-	int i, tmp;
-
-	for (i = (n / 2); i >= 0; i--) {
-		peneira(vet, i, n - 1);
-	}
-
-	for (i = n-1; i >= 1; i--) {
-		tmp = vet[0];
-		vet[0] = vet[i];
-		vet[i] = tmp;
-		peneira(vet, 0, i-1);
-	}
-}
-
-void peneira(int *vet, int raiz, int fundo) {
-	int pronto, filhoMax, tmp;
-
-	pronto = 0;
-	while ((raiz*2 <= fundo) && (!pronto)) {
-		if (raiz*2 == fundo) {
-			filhoMax = raiz * 2;
-		}
-		else if (vet[raiz * 2] > vet[raiz * 2 + 1]) {
-			filhoMax = raiz * 2;
-		}
-		else {
-			filhoMax = raiz * 2 + 1;
-		}
-
-	if (vet[raiz] < vet[filhoMax]) {
-		tmp = vet[raiz];
-		vet[raiz] = vet[filhoMax];
-		vet[filhoMax] = tmp;
-		raiz = filhoMax;
+    if (l<tam_vetor && vetor[l]>vetor[maior]) {
+        maior = l;
     }
-	else {
-      pronto = 1;
-	}
-  }
+
+    if ((r<tam_vetor) && vetor[r]>vetor[maior]) {
+        maior = r;
+    }
+
+    if (maior!=i) {
+        aux = vetor[i];
+        vetor[i] = vetor[maior];
+        vetor[maior] = aux;
+        constroi_heap(vetor, maior, tam_vetor);
+    }
 }
+
+void heapsort(int tam_vetor, int *vetor) {
+    int i, aux;
+    for(i = (tam_vetor/2)-1; i >= 0; i--) {
+        constroi_heap(vetor, i, tam_vetor);
+    }
+    for(i = tam_vetor-1; i >= 0; i--) {
+        aux = vetor[0];
+        vetor[0] = vetor[i];
+        vetor[i] = aux;
+        constroi_heap(vetor, 0, i);
+    }
+
+	for (i = 0; i < tam_vetor; i++)
+		printf("%d ", vetor[i]);
+}
+
+
+
