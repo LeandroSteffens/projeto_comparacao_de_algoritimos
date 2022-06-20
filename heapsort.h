@@ -31,9 +31,6 @@ void heapsort(int tam_vetor, int *vetor) {
         vetor[i] = aux;
         constroi_heap(vetor, 0, i);
     }
-
-	for (i = 0; i < tam_vetor; i++)
-		printf("%d ", vetor[i]);
 }
 
 

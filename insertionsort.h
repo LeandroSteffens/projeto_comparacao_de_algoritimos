@@ -11,8 +11,5 @@ void insertionsort(int tam_vetor, int *vetor)
 		}
 		vetor[j + 1] = key;
 	}
-	//imprimindo vetor
-	for (i = 1; i < tam_vetor; i++)
-		printf("%d ", vetor[i]);
 }
 

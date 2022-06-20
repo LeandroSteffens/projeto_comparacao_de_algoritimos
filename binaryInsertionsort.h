@@ -33,9 +33,6 @@ void binary(int *vetor, int tam_vetor)
 		}
 		vetor[j + 1] = selected;
 	}
-
-	for (i = 0; i < tam_vetor; i++)
-		printf("%d ", vetor[i]);
 }
 
 

@@ -20,7 +20,4 @@ void shellsort(int tam_vetor, int *vetor)
    vetor[j + gap] = value;
   }
  } while(gap > 1);
-
- for (i = 0; i < tam_vetor; i++)
-		printf("%d ", vetor[i]);
 }

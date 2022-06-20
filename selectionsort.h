@@ -11,8 +11,4 @@ int i, j, aux, min;
 	vetor [min] = vetor [i];
 	vetor [i] = aux;
 	}
-	
-	//imprimindo vetor
-	for (i = 0; i < tam_vetor; i++)
-		printf("%d ", vetor[i]);
  }
