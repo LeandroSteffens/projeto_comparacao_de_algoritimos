@@ -45,7 +45,4 @@ void mergesort(int *vetor, int i, int f) {
 
 void mergesort_ordena(int tam_vetor, int *vetor) {
     mergesort(vetor, 0, tam_vetor);
-
-	for (int i = 0; i < tam_vetor; i++)
-		printf("%d ", vetor[i]);
 }

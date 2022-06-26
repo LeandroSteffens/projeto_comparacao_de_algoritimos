@@ -34,8 +34,6 @@ int main(){
                 case 1:
                     for (i = 0; i <= tam_vetor; i++)
                         vetor[i] = i;
-                    for (i = 0; i < tam_vetor; i ++)
-                        printf ("%d ", vetor[i]);
                     break;
             
                 case 2:
@@ -44,23 +42,23 @@ int main(){
                         vetor[i] = j;
                         j--;
                     }
-                    for (i = 0; i < tam_vetor; i ++)
-                        printf ("%d ", vetor[i]);
                     break;
 
                 case 3:
                     srand(time(0));
                     for (i = 0; i < tam_vetor; i ++)
-                        vetor[i] = (rand () % valor_max) + valor_min;
-                    for (i = 0; i < tam_vetor; i ++)
-                        printf ("%d ", vetor[i]);
-                    
-
+                        vetor[i] = (rand () % valor_max) + valor_min;               
                     break;
             
                 default:
                     break;
             }
+    //imprimindo vetor inicial
+    printf("\nQuer imprimir vetor inicial? \n(0) Nao \n(1) Sim\n");
+    scanf("%i", &opcao);
+    if (opcao == 1)
+        for (i = 0; i < tam_vetor; i ++)
+            printf ("%d ", vetor[i]);
 
     printf("\nSelecione uma opcao abaixo:");
     printf("\n(1) - Bubblesort");
@@ -86,15 +84,6 @@ int main(){
             
             //tempo
             t = clock()-t;
-
-            //imprimindo vetor
-            for (i = 0; i < tam_vetor ; i++) 
-                printf("%d ", vetor[i]);
-
-            printf("\n tempo gasto = %lf", ((double)t)/((CLOCKS_PER_SEC)));
-            
-            free(vetor);
-            main();
             break;
 
         //Executando o Insertionsort
@@ -107,15 +96,6 @@ int main(){
             
             //tempo
             t = clock()-t;
-
-            //imprimindo vetor
-            for (i = 0; i < tam_vetor ; i++) 
-                printf("%d ", vetor[i]);
-
-            printf("\n tempo gasto = %lf", ((double)t)/((CLOCKS_PER_SEC)));
-            
-            free(vetor);
-            main();
             break;
 
         //Executando o Selectionsort
@@ -128,15 +108,6 @@ int main(){
             
             //tempo
             t = clock()-t;
-
-            //imprimindo vetor
-            for (i = 0; i < tam_vetor ; i++) 
-                printf("%d ", vetor[i]);
-
-            printf("\n tempo gasto = %lf", ((double)t)/((CLOCKS_PER_SEC)));
-            
-            free(vetor);
-            main();
             break;
 
         //Executando o Shellsort
@@ -149,15 +120,6 @@ int main(){
             
             //tempo
             t = clock()-t;
-
-            //imprimindo vetor
-            for (i = 0; i < tam_vetor ; i++) 
-                printf("%d ", vetor[i]);
-
-            printf("\n tempo gasto = %lf", ((double)t)/((CLOCKS_PER_SEC)));
-            
-            free(vetor);
-            main();
             break;
 
         //Executando o Mergesort
@@ -170,15 +132,6 @@ int main(){
             
             //tempo
             t = clock()-t;
-
-            //imprimindo vetor
-            for (i = 0; i < tam_vetor ; i++) 
-                printf("%d ", vetor[i]);
-
-            printf("\n tempo gasto = %lf", ((double)t)/((CLOCKS_PER_SEC)));
-            
-            free(vetor);
-            main();
             break;
 
         //Executando o Heapsort
@@ -191,15 +144,6 @@ int main(){
             
             //tempo
             t = clock()-t;
-
-            //imprimindo vetor
-            for (i = 0; i < tam_vetor ; i++) 
-                printf("%d ", vetor[i]);
-
-            printf("\n tempo gasto = %lf", ((double)t)/((CLOCKS_PER_SEC)));
-            
-            free(vetor);
-            main();
             break;
 
         //Executando o Quicksort
@@ -212,15 +156,6 @@ int main(){
             
             //tempo
             t = clock()-t;
-
-            //imprimindo vetor
-            for (i = 0; i < tam_vetor ; i++) 
-                printf("%d ", vetor[i]);
-
-            printf("\n tempo gasto = %lf", ((double)t)/((CLOCKS_PER_SEC)));
-            
-            free(vetor);
-            main();
             break;
 
         //Executando o Binary
@@ -233,15 +168,6 @@ int main(){
             
             //tempo
             t = clock()-t;
-
-            //imprimindo vetor
-            for (i = 0; i < tam_vetor ; i++) 
-                printf("%d ", vetor[i]);
-
-            printf("\n tempo gasto = %lf", ((double)t)/((CLOCKS_PER_SEC)));
-            
-            free(vetor);
-            main();
             break;
 
         //Sair do programa
@@ -254,5 +180,17 @@ int main(){
             main();
         break;
     }
+
+//tempo gasto
+printf("\n tempo gasto = %lf", ((double)t)/((CLOCKS_PER_SEC)));
+
+//imprimindo vetor
+printf("\nQuer imprimir vetor ordenado? \n(0) Nao \n(1) Sim\n");
+    scanf("%i", &opcao);
+    if (opcao == 1)
+        for (i = 0; i < tam_vetor; i ++)
+            printf ("%d ", vetor[i]);
+    
     free(vetor);
+    main();
 }
